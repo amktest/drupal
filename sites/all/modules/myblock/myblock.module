@@ -1,0 +1,37 @@
+<?php 
+
+//myblock module 
+
+
+/****************
+* Implements hook_block_info();
+***************/
+
+function myblock_block_info() {
+
+  $blocks['myblock'] = array(
+    'info' => t('My Custom block'),
+
+  );
+
+  return $blocks;
+}
+
+
+/****************
+* Implements hook_block_view();
+***************/
+
+function myblock_block_view($delta = '') {
+  
+  $block = array();
+
+  switch ($delta) {
+    case 'myblock':
+      $block['subject'] = t('<h3>This is my custom block</h3>');
+      $block['content'] = "<p>This shows all the content that has been implemented by a custom block</p>";
+      break;
+
+  }
+  return $block;
+}
